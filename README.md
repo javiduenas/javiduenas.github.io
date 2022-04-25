@@ -1,0 +1,3 @@
+# javiduenas.github.io
+Javier Duenas - Official Home on the Web
+This is just a space to host my website and maybe play with some coding along the way...
