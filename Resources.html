@@ -29,6 +29,32 @@
 This page is intended to be a continual work in progress, so please bear with me as I add more "goodies" here over time.</p>
 	<hr>
 	<p></p>
+<h3>ARTIFICIAL INTELLIGENCE (AI) & WRITING</h3>
+	  <p><strong>Sentiment Analysis Tool</strong></p>
+    <form id="sentiment-form">
+        <textarea id="text-input" placeholder="Enter text to analyze..." rows="5"></textarea><br>
+        <button type="submit">Analyze</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('sentiment-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const text = document.getElementById('text-input').value;
+            const response = await fetch('http://localhost:5000/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: text }),
+            });
+            const data = await response.json();
+            document.getElementById('result').textContent = `Sentiment: ${data[0].label}, Confidence: ${data[0].score}`;
+        });
+    </script>
+</body>
+</html>
+	  <p></p>
     <h3>ENGLISH GRAMMAR / SENTENCE STRUCTURE / PHONETICS</h3>
 	<p><strong>Lessons:</strong><br>
 <ul><a href="https://webapps.towson.edu/ows/index.asp" class="p">Towson University - OWS</a></ul>
